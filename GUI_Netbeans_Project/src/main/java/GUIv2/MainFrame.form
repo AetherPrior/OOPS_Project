@@ -82,12 +82,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="ExistingUserButton" min="-2" pref="101" max="-2" attributes="0"/>
                           <Component id="NewUserButton" min="-2" pref="101" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="165" max="32767" attributes="0"/>
+                      <EmptySpace pref="155" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -98,7 +98,7 @@
                       <Component id="ExistingUserButton" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="NewUserButton" min="-2" pref="62" max="-2" attributes="0"/>
-                      <EmptySpace pref="76" max="32767" attributes="0"/>
+                      <EmptySpace pref="95" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -157,7 +157,7 @@
                               <Component id="err_signin_label" min="-2" pref="129" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="124" max="32767" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -180,7 +180,7 @@
                           <Component id="reset" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="err_signin_label" pref="36" max="32767" attributes="0"/>
+                      <Component id="err_signin_label" pref="55" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -262,7 +262,7 @@
                           </Group>
                           <Component id="retypepass_reg_field" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -296,7 +296,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="err_reg_label" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -358,60 +358,168 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="errPanel">
+        <Container class="javax.swing.JPanel" name="confirmPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="errPanel"/>
+              <CardConstraints cardName="confirmPanel"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                              <Component id="errLabel" min="-2" pref="251" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="time_confirm_label" max="32767" attributes="0"/>
+                              <Component id="cabname_confirm_label" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="cost_confirm_label" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
+                          <Component id="home_confirm_button" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="bal_confirm_panel" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
-                              <Component id="prev_err_button" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="bal_confirm_field" alignment="0" pref="143" max="32767" attributes="0"/>
+                                  <Component id="cabname_confirm_field" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="time_confirm_field" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cost_confirm_field" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="confirm_confirm_button" min="-2" pref="69" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="wallet_confirm_button" min="-2" pref="69" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="102" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <Component id="err_confirm_label" min="-2" pref="197" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                      <Component id="errLabel" min="-2" pref="91" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="prev_err_button" min="-2" pref="41" max="-2" attributes="0"/>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cabname_confirm_label" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="cabname_confirm_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="time_confirm_label" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="time_confirm_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cost_confirm_label" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="cost_confirm_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="bal_confirm_panel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bal_confirm_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="home_confirm_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="confirm_confirm_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="wallet_confirm_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="err_confirm_label" pref="24" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="errLabel">
+            <Component class="javax.swing.JLabel" name="cabname_confirm_label">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="0"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Error"/>
+                <Property name="text" type="java.lang.String" value="Cabbie"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="prev_err_button">
+            <Component class="javax.swing.JTextField" name="cabname_confirm_field">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Back"/>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="time_confirm_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Approx duration of trip"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="cost_confirm_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cost of Trip"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="time_confirm_field">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="cost_confirm_field">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="home_confirm_button">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Home"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="prev_err_buttonMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="home_confirm_buttonMouseClicked"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="wallet_confirm_button">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Wallet"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="wallet_confirm_buttonMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="confirm_confirm_button">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Confirm"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="confirm_confirm_buttonMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="bal_confirm_panel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Wallet Balance"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="bal_confirm_panel.setVisible(false);"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="bal_confirm_field">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="bal_confirm_field.setVisible(false);"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="err_confirm_label">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="ERROR"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="err_confirm_label.setVisible(false);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -426,56 +534,59 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="deets_home_button" max="32767" attributes="0"/>
+                          <Component id="add_home_button" alignment="0" max="32767" attributes="0"/>
+                          <Component id="home_book_button" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="home_err_label" min="-2" pref="367" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel2" pref="50" max="32767" attributes="0"/>
-                                          <Component id="jLabel1" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="username_label" max="32767" attributes="0"/>
-                                          <Component id="wallet_status_label" pref="125" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
+                              <Component id="home_err_label" min="-2" pref="265" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="add_home_button" min="-2" pref="98" max="-2" attributes="0"/>
-                                  <Component id="home_book_button" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" pref="50" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="wallet_status_label" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="username_label" min="-2" pref="124" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="30" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="username_label" alignment="3" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="username_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="wallet_status_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="home_err_label" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="home_book_button" min="-2" pref="48" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="add_home_button" min="-2" pref="48" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="home_book_button" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="add_home_button" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="deets_home_button" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -485,11 +596,18 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Book Cab"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="home_book_buttonMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="home_book_buttonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="add_home_button">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Money"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="add_home_buttonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -520,12 +638,23 @@
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="home_err_label.setVisible(false);"/>
               </AuxValues>
             </Component>
+            <Component class="javax.swing.JButton" name="deets_home_button">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Check Details"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="deets_home_buttonMouseClicked"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="deets_home_button.setVisible(false);"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="walletPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card7"/>
+              <CardConstraints cardName="walletPanel"/>
             </Constraint>
           </Constraints>
 
@@ -537,27 +666,32 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel5" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Component id="toAdd_wallet_label" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Component id="pass_wallet_label" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="bal_wallet_label" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField1" min="-2" pref="152" max="-2" attributes="0"/>
+                                  <Component id="bal_wallet_field" min="-2" pref="152" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextField2" pref="150" max="32767" attributes="0"/>
-                                      <Component id="jPasswordField1" max="32767" attributes="0"/>
+                                      <Component id="toAdd_wallet_field" pref="150" max="32767" attributes="0"/>
+                                      <Component id="pass_wallet_field" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="52" max="32767" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="add_wallet_button" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="home_wallet_button" min="-2" pref="79" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                      <Component id="err_wallet_label" min="-2" pref="52" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -566,66 +700,208 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bal_wallet_label" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="bal_wallet_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="toAdd_wallet_label" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="toAdd_wallet_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pass_wallet_label" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="pass_wallet_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton1" pref="35" max="32767" attributes="0"/>
-                          <Component id="jButton2" max="32767" attributes="0"/>
+                          <Component id="add_wallet_button" pref="35" max="32767" attributes="0"/>
+                          <Component id="home_wallet_button" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <Component id="err_wallet_label" min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="bal_wallet_label">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Balance"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="bal_wallet_field">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="toAdd_wallet_label">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Money to add"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="toAdd_wallet_field">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="pass_wallet_label">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+            <Component class="javax.swing.JPasswordField" name="pass_wallet_field">
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="add_wallet_button">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Money"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="add_wallet_buttonMouseClicked"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="home_wallet_button">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Home"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="home_wallet_buttonMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="err_wallet_label">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Error"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="err_wallet_label.setVisible(false);"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="cabBookPanel">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="cabBookPanel"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="from_book_label" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
+                                  <Component id="to_book_label" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="to_combobox" pref="106" max="32767" attributes="0"/>
+                                  <Component id="from_combobox" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="book_book_button" min="-2" pref="129" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="home_bookPanel_button" min="-2" pref="142" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                              <Component id="err_book_label" min="-2" pref="173" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="from_book_label" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="from_combobox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="to_book_label" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="to_combobox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="home_bookPanel_button" pref="80" max="32767" attributes="0"/>
+                          <Component id="book_book_button" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="err_book_label" min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JComboBox" name="from_combobox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.DefaultComboBoxModel(getPlaces())" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="from_comboboxActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="to_combobox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.DefaultComboBoxModel(getPlaces())" type="code"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="from_book_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="From"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="to_book_label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="To"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="book_book_button">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Book"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="book_book_buttonMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="home_bookPanel_button">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Home"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="home_bookPanel_buttonMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="err_book_label">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="ERROR"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="err_book_label.setVisible(false);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
