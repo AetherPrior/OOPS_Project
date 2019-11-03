@@ -6,6 +6,7 @@ abstract class User
 {
     String username;
     String password; 
+    boolean quit = false;
     User()
     {
         username = "default";

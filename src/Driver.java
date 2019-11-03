@@ -1,4 +1,4 @@
-class Driver extends User
+class Driver extends User implements Runnable,ActionListener
 {
     double rating;
     Location loc;
@@ -25,4 +25,26 @@ class Driver extends User
         int a;
         //override it properly pls
     }
+
+    @Override public void run()
+    {
+        //frontend , start a new window
+        while(true)
+        {
+            if(quit)
+                break;
+        }
+    }
+
+    @Override public void actionPerformed(ActionEvent ae)
+        {
+            //All ActionEvent instances are passed to the respective listeners
+            
+            String op = ae.getActionCommand(); //the name added to the ActionEvent object
+
+            if(op.equals("QUIT"))
+                quit = true;
+            //
+            repaint(); //update the screen otherwise you don't see shit
+        }
 }
