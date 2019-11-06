@@ -96,6 +96,9 @@ public class MainFrame extends javax.swing.JFrame {
     private void callWalletPanel()
     {
         err_wallet_label.setVisible(false);
+        bal_wallet_field.setText(getWallet());
+        toAdd_wallet_field.setText("0");
+        pass_wallet_field.setText("");
         CardLayout cards=(CardLayout)mainPanel.getLayout();
         cards.show(mainPanel, "walletPanel");        
     }
@@ -111,19 +114,25 @@ public class MainFrame extends javax.swing.JFrame {
     {
         if(isInTrip())
         {
+            cabname_confirm_label.setVisible(true);
             cabname_confirm_field.setText("CABBI");
-            time_confirm_field.setText("180 days");
+            cabname_confirm_field.setVisible(true);
+            time_confirm_field.setText("80 days");
             cost_confirm_field.setText("10000000 USD");
             confirm_confirm_button.setVisible(false);
+            err_confirm_label.setText("Tripping..");
+            err_confirm_label.setVisible(true);
         }
         else
         {
-            cabname_confirm_field.setText("CABBItoBeDecided");
-            time_confirm_field.setText("180 days");
+            cabname_confirm_label.setVisible(false);
+            cabname_confirm_field.setVisible(false);
+            time_confirm_field.setText("80 days");
             cost_confirm_field.setText("10000000 USD");    
             confirm_confirm_button.setVisible(true);
+            err_confirm_label.setVisible(false);
         }
-        err_confirm_label.setVisible(false);
+        
 //        cabname_confirm_field.setText("CABBI");
 //        time_confirm_field.setText("180 days");
 //        cost_confirm_field.setText("10000000 USD");
@@ -486,32 +495,33 @@ public class MainFrame extends javax.swing.JFrame {
         confirmPanelLayout.setHorizontalGroup(
             confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(confirmPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(time_confirm_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cabname_confirm_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cost_confirm_label, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(home_confirm_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bal_confirm_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(confirmPanelLayout.createSequentialGroup()
-                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(bal_confirm_field, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                            .addComponent(cabname_confirm_field, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(time_confirm_field, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cost_confirm_field, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(time_confirm_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cabname_confirm_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cost_confirm_label, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(home_confirm_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bal_confirm_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(confirmPanelLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(bal_confirm_field, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(cabname_confirm_field, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(time_confirm_field, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cost_confirm_field, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addGroup(confirmPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(confirm_confirm_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(wallet_confirm_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(confirmPanelLayout.createSequentialGroup()
-                        .addComponent(confirm_confirm_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(wallet_confirm_button, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 48, Short.MAX_VALUE))))
-            .addGroup(confirmPanelLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(err_confirm_label, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(76, 76, 76)
+                        .addComponent(err_confirm_label, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         confirmPanelLayout.setVerticalGroup(
             confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -524,22 +534,22 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(time_confirm_label, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(time_confirm_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cost_confirm_label, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cost_confirm_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cost_confirm_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cost_confirm_label, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bal_confirm_panel)
                     .addComponent(bal_confirm_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(28, 28, 28)
                 .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(home_confirm_button)
                     .addComponent(confirm_confirm_button)
                     .addComponent(wallet_confirm_button))
-                .addGap(18, 18, 18)
-                .addComponent(err_confirm_label, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(35, 35, 35)
+                .addComponent(err_confirm_label)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         mainPanel.add(confirmPanel, "confirmPanel");
@@ -966,7 +976,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_add_home_buttonMouseClicked
 
     private void home_book_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home_book_buttonMouseClicked
+        if(home_book_button.isEnabled())
         callCabBookPanel();
+        else
+        {
+            
+        }
     }//GEN-LAST:event_home_book_buttonMouseClicked
 
     private void deets_home_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deets_home_buttonMouseClicked
@@ -990,22 +1005,36 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_home_bookPanel_buttonMouseClicked
 
     private void book_book_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_book_buttonMouseClicked
+        String src=(String)from_combobox.getSelectedItem();
+        String dest=(String)to_combobox.getSelectedItem();
+        if(src.equals(dest))
+        {
+            err_book_label.setText("Please choose different src and dest!!");
+            err_book_label.setVisible(true);
+            return;
+        }
+        else
+        {
+            callConfirmPanel();
+        }
+    }//GEN-LAST:event_book_book_buttonMouseClicked
+
+    private void confirm_confirm_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirm_confirm_buttonMouseClicked
         if(cabAvail())
         {
             callConfirmPanel();
         }
         else
         {
-            err_book_label.setText("No cabs pls");
-            err_book_label.setVisible(true);
+            err_confirm_label.setText("No cabs pls");
+            err_confirm_label.setVisible(true);
+            return;
         }
-    }//GEN-LAST:event_book_book_buttonMouseClicked
-
-    private void confirm_confirm_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirm_confirm_buttonMouseClicked
         if(canBook())
         {
             isInTrip=true;
-            callHomePanel("Cab Booked");
+            callConfirmPanel();
+//            callHomePanel("Cab Booked. CHeck deets");
         }
         else
         {
