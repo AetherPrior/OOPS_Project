@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
+import java.util.Random;
 
 class Customer extends User implements Runnable,ActionListener
 {
@@ -8,7 +9,7 @@ class Customer extends User implements Runnable,ActionListener
     String password; //to be hashed 
     Wallet w;
     Location loc;
-    boolean isInTrip;
+    boolean isInTrip, isLoggedIn;
     
     Customer()
     {
@@ -42,5 +43,24 @@ class Customer extends User implements Runnable,ActionListener
             //
             repaint(); //update the screen otherwise you don't see shit
         }
+
+    public boolean journeyStatus(Object time)
+    {
+        // Typecast time object here
+        Thread t = new Thread(this.username + "_trip_status");
+        try
+        {
+            t.sleep(time.interval); // Change this later (maybe)
+            return true;
+        }
+        catch(InterruptedException ie)
+        {
+            String messages[] = {"WASTED", "YOU DIED", "BUSTED", "HESITATION IS DEFEAT", "ALL WE HAD TO DO WAS FOLLOW THE DAMN TRAIN, CJ!"};
+            Random rand = new Random();
+            int n = rand.nextInt(5);
+            System.out.println(messages[n]);
+            return false;
+        }
+    }
 
 }

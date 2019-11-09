@@ -5,7 +5,7 @@ class Wallet
     {
         money = 0;
     }
-    boolean RemoveMoney(double price)
+    boolean removeMoney(double price)
     {
         if(money < price)
         {
@@ -21,11 +21,11 @@ class Wallet
             return true;
         }
     }
-    double GetMoney()
+    double getMoney()
     {
         return money;
     }
-    boolean AddMoney(double amount)
+    boolean addMoney(double amount)
     {
         if(amount <= 0)
         {
