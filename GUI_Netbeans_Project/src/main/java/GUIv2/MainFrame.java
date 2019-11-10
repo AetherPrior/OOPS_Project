@@ -202,6 +202,12 @@ public class MainFrame extends javax.swing.JFrame {
         img = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         sideImg = new javax.swing.JLabel();
+        BufferedImage i2=null;
+        try{i2=ImageIO.read(new File("D:\\shrey\\Documents\\JavaProjs\\OOPS_Project\\GUI_Netbeans_Project\\src\\main\\java\\GUIv2\\bg1.png"));}catch(Exception e){System.out.println("Failed import");}
+        Image scaled2=i2.getScaledInstance(700,700,Image.SCALE_SMOOTH);
+        ImageIcon icon2=new ImageIcon(scaled2);
+        sideImg.setIcon(icon2);
+        sideImg.setVisible(true);
         signinPanel = new javax.swing.JPanel();
         user_field = new javax.swing.JTextField();
         user_label = new javax.swing.JLabel();
@@ -273,6 +279,8 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setLayout(new java.awt.CardLayout());
 
+        initPanel.setLayout(null);
+
         ExistingUserButton.setBackground(new java.awt.Color(0, 255, 255));
         ExistingUserButton.setForeground(new java.awt.Color(0, 0, 102));
         ExistingUserButton.setText("<html><b><font size=4 face=\"Comic Sans MS\">Existing User</font></b></html>");
@@ -287,6 +295,8 @@ public class MainFrame extends javax.swing.JFrame {
                 ExistingUserButtonActionPerformed(evt);
             }
         });
+        initPanel.add(ExistingUserButton);
+        ExistingUserButton.setBounds(120, 100, 215, 80);
 
         NewUserButton.setBackground(new java.awt.Color(0, 255, 255));
         NewUserButton.setForeground(new java.awt.Color(0, 0, 102));
@@ -297,6 +307,8 @@ public class MainFrame extends javax.swing.JFrame {
                 NewUserButtonMouseClicked(evt);
             }
         });
+        initPanel.add(NewUserButton);
+        NewUserButton.setBounds(120, 200, 215, 80);
 
         img.setBackground(new java.awt.Color(255, 255, 255));
         img.setForeground(java.awt.SystemColor.controlHighlight);
@@ -306,56 +318,18 @@ public class MainFrame extends javax.swing.JFrame {
         ImageIcon icon=new ImageIcon(scaled);
         img.setIcon(icon);
         img.setVisible(true);
+        initPanel.add(img);
+        img.setBounds(10, 6, 131, 60);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("<html><b><font size=3 face=\"Bookman Old Style\" color=\"Black\">Book a ride without breaking a stride!!!!!</font></b></html>");
+        jLabel3.setText("<html><b><font size=4 face=\"Bookman Old Style\" color=\"White\">Book a ride without breaking a stride!!!!!</font></b></html>");
+        initPanel.add(jLabel3);
+        jLabel3.setBounds(147, 0, 300, 66);
 
-        BufferedImage i2=null;
-        try{i2=ImageIO.read(new File("D:\\shrey\\Documents\\JavaProjs\\OOPS_Project\\GUI_Netbeans_Project\\src\\main\\java\\GUIv2\\bg1.png"));}catch(Exception e){System.out.println("Failed import");}
-        Image scaled2=i2.getScaledInstance(212,229,Image.SCALE_SMOOTH);
-        ImageIcon icon2=new ImageIcon(scaled2);
-        sideImg.setIcon(icon2);
-        sideImg.setVisible(true);
         sideImg.setFocusable(false);
-
-        javax.swing.GroupLayout initPanelLayout = new javax.swing.GroupLayout(initPanel);
-        initPanel.setLayout(initPanelLayout);
-        initPanelLayout.setHorizontalGroup(
-            initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(initPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(initPanelLayout.createSequentialGroup()
-                        .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(initPanelLayout.createSequentialGroup()
-                        .addComponent(sideImg, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ExistingUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                            .addComponent(NewUserButton))))
-                .addContainerGap())
-        );
-        initPanelLayout.setVerticalGroup(
-            initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(initPanelLayout.createSequentialGroup()
-                .addGroup(initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(initPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                        .addComponent(ExistingUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(NewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))
-                    .addGroup(initPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sideImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
+        initPanel.add(sideImg);
+        sideImg.setBounds(0, 1, 460, 340);
 
         mainPanel.add(initPanel, "initPanel");
 

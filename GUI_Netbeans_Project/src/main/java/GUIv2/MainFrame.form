@@ -92,54 +92,8 @@
             </Constraint>
           </Constraints>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="img" min="-2" pref="131" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel3" min="-2" pref="300" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="sideImg" min="-2" pref="212" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="ExistingUserButton" pref="215" max="32767" attributes="0"/>
-                                  <Component id="NewUserButton" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel3" min="-2" pref="66" max="-2" attributes="0"/>
-                          <Component id="img" min="-2" pref="60" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace pref="37" max="32767" attributes="0"/>
-                              <Component id="ExistingUserButton" min="-2" pref="80" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="NewUserButton" min="-2" pref="80" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="sideImg" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JButton" name="ExistingUserButton">
@@ -161,6 +115,11 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ExistingUserButtonMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExistingUserButtonActionPerformed"/>
               </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="120" y="100" width="215" height="80"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="NewUserButton">
               <Properties>
@@ -180,6 +139,11 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NewUserButtonMouseClicked"/>
               </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="120" y="200" width="215" height="80"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="img">
               <Properties>
@@ -196,6 +160,11 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="img.setVisible(true);"/>
               </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="10" y="6" width="131" height="60"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
@@ -203,16 +172,28 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;b&gt;&lt;font size=3 face=&quot;Bookman Old Style&quot; color=&quot;Black&quot;&gt;Book a ride without breaking a stride!!!!!&lt;/font&gt;&lt;/b&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;b&gt;&lt;font size=4 face=&quot;Bookman Old Style&quot; color=&quot;White&quot;&gt;Book a ride without breaking a stride!!!!!&lt;/font&gt;&lt;/b&gt;&lt;/html&gt;"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="147" y="0" width="300" height="66"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="sideImg">
               <Properties>
-                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="focusable" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="BufferedImage i2=null;&#xa;try{i2=ImageIO.read(new File(&quot;D:\\shrey\\Documents\\JavaProjs\\OOPS_Project\\GUI_Netbeans_Project\\src\\main\\java\\GUIv2\\bg1.png&quot;));}catch(Exception e){System.out.println(&quot;Failed import&quot;);}&#xa;Image scaled2=i2.getScaledInstance(212,229,Image.SCALE_SMOOTH);&#xa;ImageIcon icon2=new ImageIcon(scaled2);&#xa;sideImg.setIcon(icon2);&#xa;sideImg.setVisible(true);"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="BufferedImage i2=null;&#xa;try{i2=ImageIO.read(new File(&quot;D:\\shrey\\Documents\\JavaProjs\\OOPS_Project\\GUI_Netbeans_Project\\src\\main\\java\\GUIv2\\bg1.png&quot;));}catch(Exception e){System.out.println(&quot;Failed import&quot;);}&#xa;Image scaled2=i2.getScaledInstance(700,700,Image.SCALE_SMOOTH);&#xa;ImageIcon icon2=new ImageIcon(scaled2);&#xa;sideImg.setIcon(icon2);&#xa;sideImg.setVisible(true);"/>
               </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="1" width="460" height="340"/>
+                </Constraint>
+              </Constraints>
             </Component>
           </SubComponents>
         </Container>
