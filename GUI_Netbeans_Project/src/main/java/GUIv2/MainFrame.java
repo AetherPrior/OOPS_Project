@@ -5,6 +5,11 @@
  */
 package GUIv2;
 import java.awt.CardLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 /**
  *
  * @author shrey
@@ -12,6 +17,7 @@ import java.awt.CardLayout;
 public class MainFrame extends javax.swing.JFrame {
     String prev="initPanel";
     boolean isInTrip=false;
+    
     /*
      * Creates new form MainFrame
      */
@@ -26,12 +32,18 @@ public class MainFrame extends javax.swing.JFrame {
     private void callSignInPanel()
     {
         err_signin_label.setVisible(false);
+        user_field.setText("");
+        pass_field.setText("");
         CardLayout cards=(CardLayout)mainPanel.getLayout();
         cards.show(mainPanel, "signinPanel");
     }
     private void callRegisterPanel()
     {
         err_reg_label.setVisible(false);
+        name_text.setText("");
+        email_text.setText("");
+        pass_reg_field.setText("");
+        retypepass_reg_field.setText("");
         CardLayout cards=(CardLayout)mainPanel.getLayout();
         cards.show(mainPanel, "registerPanel");
     }
@@ -187,6 +199,9 @@ public class MainFrame extends javax.swing.JFrame {
         initPanel = new javax.swing.JPanel();
         ExistingUserButton = new javax.swing.JButton();
         NewUserButton = new javax.swing.JButton();
+        img = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        sideImg = new javax.swing.JLabel();
         signinPanel = new javax.swing.JPanel();
         user_field = new javax.swing.JTextField();
         user_label = new javax.swing.JLabel();
@@ -253,42 +268,93 @@ public class MainFrame extends javax.swing.JFrame {
         sign_out_menuitem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setLayout(new java.awt.CardLayout());
 
-        ExistingUserButton.setText("Existing User");
+        ExistingUserButton.setBackground(new java.awt.Color(0, 255, 255));
+        ExistingUserButton.setForeground(new java.awt.Color(0, 0, 102));
+        ExistingUserButton.setText("<html><b><font size=4 face=\"Comic Sans MS\">Existing User</font></b></html>");
+        ExistingUserButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ExistingUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ExistingUserButtonMouseClicked(evt);
             }
         });
+        ExistingUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExistingUserButtonActionPerformed(evt);
+            }
+        });
 
-        NewUserButton.setText("New User");
+        NewUserButton.setBackground(new java.awt.Color(0, 255, 255));
+        NewUserButton.setForeground(new java.awt.Color(0, 0, 102));
+        NewUserButton.setText("<html><b><font size=4 face=\"Comic Sans MS\">New User</font></b></html>");
+        NewUserButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         NewUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NewUserButtonMouseClicked(evt);
             }
         });
 
+        img.setBackground(new java.awt.Color(255, 255, 255));
+        img.setForeground(java.awt.SystemColor.controlHighlight);
+        BufferedImage i=null;
+        try{i=ImageIO.read(new File("D:\\shrey\\Documents\\JavaProjs\\OOPS_Project\\GUI_Netbeans_Project\\src\\main\\java\\GUIv2\\uberola.png"));}catch(Exception e){System.out.println("Failed import");}
+        Image scaled=i.getScaledInstance(131,60,Image.SCALE_SMOOTH);
+        ImageIcon icon=new ImageIcon(scaled);
+        img.setIcon(icon);
+        img.setVisible(true);
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("<html><b><font size=3 face=\"Bookman Old Style\" color=\"Black\">Book a ride without breaking a stride!!!!!</font></b></html>");
+
+        BufferedImage i2=null;
+        try{i2=ImageIO.read(new File("D:\\shrey\\Documents\\JavaProjs\\OOPS_Project\\GUI_Netbeans_Project\\src\\main\\java\\GUIv2\\bg1.png"));}catch(Exception e){System.out.println("Failed import");}
+        Image scaled2=i2.getScaledInstance(212,229,Image.SCALE_SMOOTH);
+        ImageIcon icon2=new ImageIcon(scaled2);
+        sideImg.setIcon(icon2);
+        sideImg.setVisible(true);
+        sideImg.setFocusable(false);
+
         javax.swing.GroupLayout initPanelLayout = new javax.swing.GroupLayout(initPanel);
         initPanel.setLayout(initPanelLayout);
         initPanelLayout.setHorizontalGroup(
             initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(initPanelLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addGroup(initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ExistingUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(initPanelLayout.createSequentialGroup()
+                        .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(initPanelLayout.createSequentialGroup()
+                        .addComponent(sideImg, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ExistingUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                            .addComponent(NewUserButton))))
+                .addContainerGap())
         );
         initPanelLayout.setVerticalGroup(
             initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(initPanelLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(ExistingUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(NewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGroup(initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(initPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(initPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addComponent(ExistingUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(NewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(initPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sideImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         mainPanel.add(initPanel, "initPanel");
@@ -338,7 +404,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(signinPanelLayout.createSequentialGroup()
                         .addGap(145, 145, 145)
                         .addComponent(err_signin_label, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         signinPanelLayout.setVerticalGroup(
             signinPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,7 +422,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(err_signin_label, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addComponent(err_signin_label, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -442,7 +508,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(reset_reg_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(err_reg_label)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         mainPanel.add(registerPanel, "registerPanel");
@@ -521,7 +587,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(confirmPanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(err_confirm_label, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         confirmPanelLayout.setVerticalGroup(
             confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -549,7 +615,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(wallet_confirm_button))
                 .addGap(35, 35, 35)
                 .addComponent(err_confirm_label)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         mainPanel.add(confirmPanel, "confirmPanel");
@@ -605,7 +671,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(home_book_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
-                .addGap(0, 68, Short.MAX_VALUE)
+                .addGap(0, 101, Short.MAX_VALUE)
                 .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homePanelLayout.createSequentialGroup()
                         .addComponent(home_err_label, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -639,7 +705,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(add_home_button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deets_home_button)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         mainPanel.add(homePanel, "homePanel");
@@ -720,7 +786,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(walletPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(add_wallet_button, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(home_wallet_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(err_wallet_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -781,7 +847,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(cabBookPanelLayout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addComponent(err_book_label, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         cabBookPanelLayout.setVerticalGroup(
             cabBookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -800,10 +866,13 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(book_book_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addComponent(err_book_label, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         mainPanel.add(cabBookPanel, "cabBookPanel");
+
+        jMenuBar1.setBackground(java.awt.SystemColor.controlHighlight);
+        jMenuBar1.setForeground(java.awt.SystemColor.controlShadow);
 
         jMenu1.setText("File");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -848,18 +917,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ExistingUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExistingUserButtonMouseClicked
-        callSignInPanel();
-//        CardLayout cards=(CardLayout)mainPanel.getLayout();
-//        cards.show(mainPanel, "signinPanel");
-    }//GEN-LAST:event_ExistingUserButtonMouseClicked
-
-    private void NewUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewUserButtonMouseClicked
-        callRegisterPanel();
-//        CardLayout cards=(CardLayout)mainPanel.getLayout();
-//        cards.show(mainPanel, "registerPanel");
-    }//GEN-LAST:event_NewUserButtonMouseClicked
 
     private void sign_out_menuitemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sign_out_menuitemMouseClicked
 //        
@@ -1043,6 +1100,22 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirm_confirm_buttonMouseClicked
 
+    private void NewUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewUserButtonMouseClicked
+        callRegisterPanel();
+        //        CardLayout cards=(CardLayout)mainPanel.getLayout();
+        //        cards.show(mainPanel, "registerPanel");
+    }//GEN-LAST:event_NewUserButtonMouseClicked
+
+    private void ExistingUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExistingUserButtonMouseClicked
+        callSignInPanel();
+        //        CardLayout cards=(CardLayout)mainPanel.getLayout();
+        //        cards.show(mainPanel, "signinPanel");
+    }//GEN-LAST:event_ExistingUserButtonMouseClicked
+
+    private void ExistingUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExistingUserButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExistingUserButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1111,9 +1184,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton home_confirm_button;
     private javax.swing.JLabel home_err_label;
     private javax.swing.JButton home_wallet_button;
+    private javax.swing.JLabel img;
     private javax.swing.JPanel initPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
@@ -1132,6 +1207,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton reset;
     private javax.swing.JButton reset_reg_button;
     private javax.swing.JPasswordField retypepass_reg_field;
+    private javax.swing.JLabel sideImg;
     private javax.swing.JButton signIn;
     private javax.swing.JMenuItem sign_out_menuitem;
     private javax.swing.JPanel signinPanel;
