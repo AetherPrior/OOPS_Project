@@ -112,13 +112,14 @@ public class DBMSUtils
         }
     }
 
-    public boolean endTrip(Driver d, double price)
+    public boolean endTrip(Driver d, double price, String loc)
     {
         if(d.isInTrip == true)
         {
             d.assignedCustomer.w.removeMoney(price);
             d.isInTrip = false;
             d.assignedCustomer.isInTrip = false;
+            d.assignedCustomer.loc = loc;
             try
             {
                 MongoCollection<Document> customers = db.getCollection("customers");
@@ -143,10 +144,12 @@ public class DBMSUtils
                 }
                 else
                 {
-                    drivers.updateOne(eq("name", d.username), set("in_trip", false));
+                    drivers.updateOne(eq("name", d.username), combine(set("in_trip", false), 
+                                      set("rating", d.rating), set("location", loc)));
                 }
                 d.assignedCustomer.assignedDriver = null;
                 d.assignedCustomer = null;
+                d.loc = loc;
                 return true;
             }
             catch(Exception e)
