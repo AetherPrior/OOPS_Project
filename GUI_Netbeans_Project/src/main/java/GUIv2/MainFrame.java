@@ -17,7 +17,7 @@ import javax.imageio.ImageIO;
 public class MainFrame extends javax.swing.JFrame {
     String prev="initPanel";
     boolean isInTrip=false;
-    
+    Customer c1;
     /*
      * Creates new form MainFrame
      */
@@ -127,10 +127,10 @@ public class MainFrame extends javax.swing.JFrame {
         if(isInTrip())
         {
             cabname_confirm_label.setVisible(true);
-            cabname_confirm_field.setText("CABBI");
+            cabname_confirm_field.setText(c1.driver.name);
             cabname_confirm_field.setVisible(true);
-            time_confirm_field.setText("80 days");
-            cost_confirm_field.setText("10000000 USD");
+            time_confirm_field.setText(eta());
+            cost_confirm_field.setText(Location.getEstimate());
             confirm_confirm_button.setVisible(false);
             err_confirm_label.setText("Tripping..");
             err_confirm_label.setVisible(true);
@@ -139,8 +139,8 @@ public class MainFrame extends javax.swing.JFrame {
         {
             cabname_confirm_label.setVisible(false);
             cabname_confirm_field.setVisible(false);
-            time_confirm_field.setText("80 days");
-            cost_confirm_field.setText("10000000 USD");    
+            time_confirm_field.setText(eta());
+            cost_confirm_field.setText(Location.getEstimate());    
             confirm_confirm_button.setVisible(true);
             err_confirm_label.setVisible(false);
         }
@@ -158,15 +158,22 @@ public class MainFrame extends javax.swing.JFrame {
     }
     private String getUsername()
     {
-        return "Shreyam";
+        return c1.username;
     }
     private String getWallet()
     {
-        return "600";
+        return c1.w.getMoney().toString();
     }
-    private boolean isRegValid()
+    private boolean isRegValid(String username, String email, String pass)
     {
-        return true;
+        if(username.equals("")||email.equals("")||pass.equals(""))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
     private boolean cabAvail()
     {
@@ -281,10 +288,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         initPanel.setLayout(null);
 
-        ExistingUserButton.setBackground(new java.awt.Color(0, 255, 255));
-        ExistingUserButton.setForeground(new java.awt.Color(0, 0, 102));
-        ExistingUserButton.setText("<html><b><font size=4 face=\"Comic Sans MS\">Existing User</font></b></html>");
+        ExistingUserButton.setBackground(new java.awt.Color(0, 0, 0));
+        ExistingUserButton.setForeground(new java.awt.Color(255, 255, 255));
+        ExistingUserButton.setText("<html><b><font size=5 face=\"Roboto\">Existing User</font></b></html>");
         ExistingUserButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ExistingUserButton.setContentAreaFilled(false);
+        ExistingUserButton.setBorder(null);
         ExistingUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ExistingUserButtonMouseClicked(evt);
@@ -299,9 +308,11 @@ public class MainFrame extends javax.swing.JFrame {
         ExistingUserButton.setBounds(120, 100, 215, 80);
 
         NewUserButton.setBackground(new java.awt.Color(0, 255, 255));
-        NewUserButton.setForeground(new java.awt.Color(0, 0, 102));
-        NewUserButton.setText("<html><b><font size=4 face=\"Comic Sans MS\">New User</font></b></html>");
+        NewUserButton.setForeground(new java.awt.Color(255, 255, 255));
+        NewUserButton.setText("<html><b><font size=5 face=\"Roboto\">New User</font></b></html>");
         NewUserButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        NewUserButton.setContentAreaFilled(false);
+        NewUserButton.setBorder(null);
         NewUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NewUserButtonMouseClicked(evt);
@@ -323,7 +334,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("<html><b><font size=4 face=\"Bookman Old Style\" color=\"White\">Book a ride without breaking a stride!!!!!</font></b></html>");
+        jLabel3.setText("<html><b><font size=4 face=\"Proxima Nova\" color=\"White\">Book a ride without breaking a stride!!!!!</font></b></html>");
         initPanel.add(jLabel3);
         jLabel3.setBounds(147, 0, 300, 66);
 
@@ -336,6 +347,12 @@ public class MainFrame extends javax.swing.JFrame {
         user_label.setText("Username");
 
         pass_label.setText("Password");
+
+        pass_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pass_fieldActionPerformed(evt);
+            }
+        });
 
         signIn.setText("Sign in");
         signIn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -926,7 +943,7 @@ public class MainFrame extends javax.swing.JFrame {
 //        System.out.println("Clickedddddd");
 //        callHomePanel();
 //        System.out.println(str);
-        if(!str.equals("Shreyam"))
+        if(user_field.getText().equals("")||pass_field.getPassword().toString().equals(""))
         {
             err_signin_label.setText("Wrong user");
             err_signin_label.setVisible(true);
@@ -937,7 +954,32 @@ public class MainFrame extends javax.swing.JFrame {
         }
         else
         {
-            callHomePanel("Welcome!!!!");            
+            String password = pass_field.getPassword().toString();
+            String username = user_field.getText();
+            try
+            {
+                password = Customer.HashPassword(password);
+               
+            }
+            catch(Exception e)
+            {
+                err_signin_label.setText("Something went wrong");
+                err_signin_label.setVisible(true);
+            }
+            /*
+            Customer tempCustomer = DBMSUtils.checkLogin(username,password);
+            if(tempCustomer != NULL)
+            {
+                callHomePanel("Welcome!!!!");
+                c1 = tempCustomer;
+            }
+            else
+            {
+            err_signin_label.setText("Wrong user");
+            err_signin_label.setVisible(true);
+            }
+            
+            */
         }
     }//GEN-LAST:event_signInMouseClicked
 
@@ -947,19 +989,26 @@ public class MainFrame extends javax.swing.JFrame {
 
     
     private void reg_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reg_buttonMouseClicked
-
-        if(!isRegValid())
+        String username = name_text.getText();
+        String email = email_text.getText();
+        String pass = pass_reg_field.getPassword().toString();
+        String retypedPass = retypepass_reg_field.getPassword().toString();
+        if(!pass.equals(retypedPass))
         {
-            err_reg_label.setText("Errorrrrr registering");
+            err_reg_label.setText("Wrong retyped password");
+            err_reg_label.setVisible(true);  
+            return;
+        }
+        if(!isRegValid(username, email, pass))
+        {
+            err_reg_label.setText("Error registering");
             err_reg_label.setVisible(true);            
         }
         else
         {
-//            err_reg_label.setVisible(true);
-//            err_reg_label.setText("Success Registering. Redirecting to Home...");
-//            System.out.println("reg_button_clicked");
-//            try{Thread.sleep(10000);}catch(Exception e){}
-            
+//            
+            c1 = new Customer(username,pass);
+            //CALL DATABASE AND CHECK IF USER CAN BE MADE
             callHomePanel("Registered You. Welcome!!!!");
         }
     }//GEN-LAST:event_reg_buttonMouseClicked
@@ -1089,6 +1138,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void ExistingUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExistingUserButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ExistingUserButtonActionPerformed
+
+    private void pass_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pass_fieldActionPerformed
 
     /**
      * @param args the command line arguments
