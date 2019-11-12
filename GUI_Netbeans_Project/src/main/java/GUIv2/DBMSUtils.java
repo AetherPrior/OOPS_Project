@@ -67,14 +67,14 @@ public class DBMSUtils
         Document cursor = drivers.find(eq("name", d.username)).first();
         if(cursor == null)
         {
-            Document cust_details = new Document("name", d.assignedCustomer.username)
-                                    .append("location", d.assignedCustomer.loc);
+            //Document cust_details = new Document("name", d.assignedCustomer.username)
+            //                        .append("location", d.assignedCustomer.loc);
 
             Document entry = new Document("name", d.username)
                              .append("rating", d.rating)
                              .append("location", d.loc)
                              .append("in_trip", d.isInTrip);
-                             .append("assigned_customer", cust_details);
+                             //.append("assigned_customer", cust_details);
             drivers.insertOne(entry);
             return true; 
         }
@@ -255,5 +255,60 @@ public class DBMSUtils
             System.out.println("Database not accessible : " + e);
             return null;
         }
+    }
+    public boolean addMoney(Customer c, double amount)
+    {
+        try
+        {
+            MongoCollection<Document> customers = db.getCollection("customers");
+            Document cursor = customers.find(eq("name", c.username)).first();
+            if(cursor == null)
+            {
+                return false;
+            }
+            else
+            {
+                double money = cursor.get("amount_in_wallet");
+                customers.updateOne(eq("name", c.username), set("amount_in_wallet", (money+amount)));
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Database not accessible : " + e);
+            return false;
+        }
+        boolean add_money = c.w.addMoney(amount);
+        if(add_money == false)
+            return false;
+        else
+            return true;
+    }
+
+    public Driver getBestDriver(String loc)
+    {
+        Driver d = null;
+        try
+        {
+            MongoCollection<Document> drivers = db.getCollection("drivers");
+            Document cursor = drivers.find(and(eq("location", loc), eq("in_trip", false))).iterator();
+            int rating = 0;
+            while(cursor.hasNext())
+            {
+                if(cursor.next().get("rating") >= rating)
+                {
+                    d = new Driver();
+                    d.name = cursor.next().get("name");
+                    d.rating = cursor.next().get("rating");
+                    d.loc = loc;
+                }
+            }
+            cursor.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Database not accessible : " + e);
+            return null;
+        }
+        return d;
     }
 }
