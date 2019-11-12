@@ -23,9 +23,13 @@ public class DBMSUtils
 
     public DBMSUtils()
     {
+        username = "varundb";
+        password = "varsha123";
         try
         {
-            mc = MongoClients.create(); // Create database at localhost:27017
+            MongoClientURI uri = new MongoClientURI(
+    "mongodb+srv://varundb:<password>@cluster0-oi5zy.mongodb.net/test?retryWrites=true&w=majority");
+            mc = MongoClients.create(uri); // Create database at localhost:27017
             db = mc.getDatabase("users");
         }
         catch(Exception e)
