@@ -17,16 +17,19 @@ import java.util.List;
 
 public class DBMSUtils
 {
-    //make vars static
     private String username, password;
     MongoClient mc;
     MongoDatabase db;
 
     public DBMSUtils()
     {
+        username = "varundb";
+        password = "varsha123";
         try
         {
-            mc = MongoClients.create(); // Create database at localhost:27017
+            MongoClientURI uri = new MongoClientURI(
+    "mongodb+srv://varundb:"+password+"@cluster0-oi5zy.mongodb.net/test?retryWrites=true&w=majority");
+            mc = MongoClients.create(uri); // Create database at localhost:27017
             db = mc.getDatabase("users");
         }
         catch(Exception e)
@@ -45,9 +48,8 @@ public class DBMSUtils
             Document entry = new Document("name", c.username)
                              .append("password", c.password)
                              .append("amount_in_wallet", c.w.money)
-                             .append("location", c.location)
-                             .append("in_trip", c.isInTrip)
-                             .append("logged_in", c.isLoggedIn)
+                             .append("location", c.loc)
+                             .append("in_trip", false)
                              .append("trip_start", 0)
                              .append("trip_end", 0);
             customers.insertOne(entry);
@@ -66,7 +68,7 @@ public class DBMSUtils
         if(cursor == null)
         {
             Document cust_details = new Document("name", d.assignedCustomer.username)
-                                    .append("location", d.assignedCustomer.location);
+                                    .append("location", d.assignedCustomer.loc);
 
             Document entry = new Document("name", d.username)
                              .append("rating", d.rating)
@@ -143,6 +145,8 @@ public class DBMSUtils
                 {
                     drivers.updateOne(eq("name", d.username), set("in_trip", false));
                 }
+                d.assignedCustomer.assignedDriver = null;
+                d.assignedCustomer = null;
                 return true;
             }
             catch(Exception e)
@@ -202,76 +206,6 @@ public class DBMSUtils
         }
     }
 
-    public boolean checkLogin(Customer c, boolean logging_in)
-    {
-        //RETURN A CUSTOMER INSTEAD, IF LOGIN IN SUCCESSFUL
-        //OTHERWISE RETURN NULL CUSTOMER
-        if(logging_in == true)
-        {
-            try
-            {
-                MongoCollection<Document> customers = db.getCollection("customers");
-                Document cursor = customers.find(eq("name", c.username)).first();
-                if(cursor == null)
-                {
-                    System.out.println("This guy doesn't exist in the DB");
-                    return false;
-                }
-                else
-                {
-                    if(cursor.get("logged_in") == true)
-                    {
-                        c.isLoggedIn = true;
-                        return false;
-                    }
-                    else
-                    {
-                        customers.updateOne(eq("name", c.username), set("logged_in", true));
-                        c.isLoggedIn = true;
-                        return true;
-                    }
-                }
-            }
-            catch(Exception e)
-            {
-                System.out.println("Database not accessible : " + e);
-                return false;
-            }
-        }
-        else
-        {
-            try
-            {
-                MongoCollection<Document> customers = db.getCollection("customers");
-                Document cursor = customers.find(eq("name", c.username)).first();
-                if(cursor == null)
-                {
-                    System.out.println("This guy doesn't exist in the DB");
-                    return false;
-                }
-                else
-                {
-                    if(cursor.get("logged_in") == false)
-                    {
-                        c.isLoggedIn = false;
-                        return false;
-                    }
-                    else
-                    {
-                        customers.updateOne(eq("name", c.username), set("logged_in", false));
-                        c.isLoggedIn = false;
-                        return true;
-                    }
-                }
-            }
-            catch(Exception e)
-            {
-                System.out.println("Database not accessible : " + e);
-                return false;
-            }
-        }
-    }
-
     public long getEndTime(Customer c)
     {
         try
@@ -292,6 +226,34 @@ public class DBMSUtils
         {
             System.out.println("Database not accessible : " + e);
             return -1;
+        }
+    }
+
+    public Customer loginUser(String username, String password)
+    {
+        try
+        {
+            MongoCollection<Document> customers = db.getCollection("customers");
+            Document cursor = customers.find(and(eq("name", username), eq("password", password))).first();
+            if(cursor == null)
+            {
+                return null;
+            }
+            else
+            {
+                Customer c = new Customer();
+                c.username = username;
+                c.password = password;
+                c.w.money = cursor.get("amount_in_wallet");
+                c.loc =  cursor.get("location");
+                c.isInTrip = cursor.get("in_trip");
+                return c;
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Database not accessible : " + e);
+            return null;
         }
     }
 }

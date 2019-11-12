@@ -8,8 +8,9 @@ class Customer extends User implements Runnable,ActionListener
     String username;
     String password; //to be hashed 
     Wallet w;
-    Location loc;
-    boolean isInTrip, isLoggedIn;
+    String loc;
+    boolean isInTrip;
+    Driver assignedDriver;
     
     Customer()
     {

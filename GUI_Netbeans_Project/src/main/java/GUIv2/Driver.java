@@ -1,7 +1,7 @@
 class Driver extends User implements Runnable,ActionListener
 {
     double rating;
-    Location loc;
+    String loc;
     boolean isInTrip;
     Customer assignedCustomer;
     Driver()
